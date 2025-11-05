@@ -61,26 +61,13 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Local MySQL Setup
-1. Start your local MySQL service
-2. Create a database via MySQL CLI/Workbench:
-   ```sql
-   CREATE DATABASE contact_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-   ```
-3. Create a `.env` file in the `backend` folder:
-   ```env
-   # .env file content (update with your local MySQL credentials)
-   DATABASE_URL=mysql+pymysql://root:your-local-mysql-password@localhost:3306/contact_db
-   PORT=8000
-   ```
-
-### 5. Run Local Server
+### 4. Run Local Server
 ```bash
 # Start server with hot-reload (auto-restarts on code changes)
 uvicorn main:app --reload
 ```
 
-### 6. Access API Docs & Test
+### 5. Access API Docs & Test
 Open your browser and visit:
 - Swagger UI (interactive testing): `http://127.0.0.1:8000/docs`
 - ReDoc (API documentation): `http://127.0.0.1:8000/redoc`
