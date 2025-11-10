@@ -28,7 +28,7 @@ app = FastAPI(title="通讯录后端 API", version="1.0")
 # 3. 配置 CORS（允许前端跨域访问）
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # 前端 Vue 运行地址（固定，除非你改了前端端口）
+    allow_origins=["*"],  # 前端 Vue 运行地址（固定，除非你改了前端端口）
     allow_credentials=True,
     allow_methods=["*"],  # 允许所有 HTTP 方法（GET/POST/PUT/DELETE）
     allow_headers=["*"],  # 允许所有请求头
@@ -120,6 +120,5 @@ def delete_contact_api(contact_id: int, db: Session = Depends(get_db)):
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("PORT", 8000))
-    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)
-
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=False)
 
